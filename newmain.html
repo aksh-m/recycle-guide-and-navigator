@@ -1,0 +1,112 @@
+<?php
+session_start();
+if (!isset($_SESSION['logged_in'])) {
+    header("Location: login.php");
+    exit();
+}
+include 'db_connection.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycle Guide and Navigator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            margin: 20px 0;
+        }
+        input, select, button {
+            padding: 10px;
+            margin: 10px 0;
+            display: block;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
+        <a href="logout.php" style="color: white;">Logout</a>
+    </header>
+
+    <main>
+        <!-- Recycling Form -->
+        <section id="recycle">
+            <h2>Submit Your Recycling</h2>
+            <form action="recycle_process.php" method="POST">
+                <label for="itemType">Select Recycling Item:</label>
+                <select name="itemType" required>
+                    <option value="plastic">Plastic</option>
+                    <option value="paper">Paper</option>
+                    <option value="glass">Glass</option>
+                    <option value="metal">Metal</option>
+                    <option value="electronics">Electronics</option>
+                </select>
+
+                <label for="quantity">Enter Quantity (in kg):</label>
+                <input type="number" name="quantity" min="0.1" step="0.1" required>
+
+                <label for="center">Recycling Center:</label>
+                <input type="text" name="center" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- Leaderboard -->
+        <section id="leaderboard">
+            <h2>Leaderboard</h2>
+            <table>
+                <tr>
+                    <th>Username</th>
+                    <th>Total Recycled (kg)</th>
+                </tr>
+                <?php
+                $sql = "SELECT username, recycled_total FROM users ORDER BY recycled_total DESC LIMIT 10";
+                $result = $conn->query($sql);
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr><td>{$row['username']}</td><td>{$row['recycled_total']}</td></tr>";
+                }
+                ?>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

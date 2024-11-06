@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2E8B57;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .home-link {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            background-color: #1E693A;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        section {
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+        h2 {
+            color: #2E8B57;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: #2E8B57;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0.5rem 0 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 1.1rem;
+        }
+
+        .button-group {
+            justify-content: center;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .button-group button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .button-yes {
+            background-color: #2E8B57;
+        }
+
+        .button-no {
+            background-color: #E74C3C;
+        }
+
+        .button-yes:hover {
+            background-color: #1E693A;
+            transform: translateY(-2px);
+        }
+
+        .button-no:hover {
+            background-color: #C0392B;
+            transform: translateY(-2px);
+        }
+
+        .button-disabled {
+            background-color: #BDC3C7;
+            cursor: not-allowed;
+        }
+
+        #submitButton {
+            background-color: #2E8B57;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1.1rem;
+        }
+
+        #submitButton:hover {
+            background-color: #1E693A;
+            transform: translateY(-2px);
+        }
+
+        #assessmentResult {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: #2E8B57;
+        }
+
+        footer {
+            background-color: #2E8B57;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Waste Management Assessment</h1>
+        <a href="index.html" class="home-link">Home</a>
+    </header>
+
+    <section id="waste-management">
+        <h2>Assess Your Waste Management Practices</h2>
+        <p>Take a moment to evaluate how effectively you manage your waste. Your answers will help you understand areas for improvement and how you can contribute to a more sustainable environment.</p>
+        <form id="wasteAssessmentForm">
+            <div class="form-group">
+                <label>Do you regularly sort and recycle your waste?</label>
+                <div class="button-group">
+                    <button type="button" class="button-yes" data-question="recycling" data-answer="yes">Yes</button>
+                    <button type="button" class="button-no" data-question="recycling" data-answer="no">No</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Do you compost organic waste like food scraps and yard waste?</label>
+                <div class="button-group">
+                    <button type="button" class="button-yes" data-question="composting" data-answer="yes">Yes</button>
+                    <button type="button" class="button-no" data-question="composting" data-answer="no">No</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Do you make an effort to reuse items instead of discarding them?</label>
+                <div class="button-group">
+                    <button type="button" class="button-yes" data-question="reuse" data-answer="yes">Yes</button>
+                    <button type="button" class="button-no" data-question="reuse" data-answer="no">No</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Do you purchase products with minimal or recyclable packaging?</label>
+                <div class="button-group">
+                    <button type="button" class="button-yes" data-question="purchase" data-answer="yes">Yes</button>
+                    <button type="button" class="button-no" data-question="purchase" data-answer="no">No</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Have you educated yourself and others about proper waste management practices?</label>
+                <div class="button-group">
+                    <button type="button" class="button-yes" data-question="education" data-answer="yes">Yes</button>
+                    <button type="button" class="button-no" data-question="education" data-answer="no">No</button>
+                </div>
+            </div>
+            <br>
+            <button type="button" id="submitButton">Submit</button>
+        </form>
+        <div id="assessmentResult"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Waste Management Initiative. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Initialize score storage
+        const answers = {};
+
+        // Handle button clicks
+        document.querySelectorAll('.button-group button').forEach(button => {
+            button.addEventListener('click', () => {
+                const question = button.getAttribute('data-question');
+                const answer = button.getAttribute('data-answer');
+
+                // Store the answer
+                answers[question] = answer;
+
+                // Update button styles and disable buttons
+                button.parentElement.querySelectorAll('button').forEach(btn => {
+                    btn.classList.add('button-disabled');
+                    btn.disabled = true;
+                });
+                button.classList.remove('button-disabled');
+                button.classList.add(answer === 'yes' ? 'button-yes-selected' : 'button-no-selected');
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('submitButton').addEventListener('click', () => {
+            const totalQuestions = Object.keys(answers).length;
+            const correctAnswers = Object.values(answers).filter(answer => answer === 'yes').length;
+            const resultText = `You answered ${correctAnswers} out of ${totalQuestions} questions positively.`;
+
+            document.getElementById('assessmentResult').textContent = resultText;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+/* General body*/
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f8ff;
+  background-image: url('assets/images/f2.avif');
+  background-size: cover;
+  background-position: center; 
+  background-attachment: fixed;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header styling */
+header {
+  background-color: #2E8B57;
+  color: white;
+  text-align: center;
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.recycle-symbol {
+  font-size: 3rem;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.recycle-symbol:hover {
+  transform: rotate(330deg);
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+section {
+  margin-bottom: 4rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  color: #2E8B57;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background-color: #2E8B57;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Text and list styling */
+p, li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  color: green;
+  margin-bottom: 8px;
+}
+
+ul li a {
+  color: green;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #2E8B57;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #1E693A;
+  transform: translateY(-2px);
+}
+
+
+footer {
+  background-color: #2E8B57;
+  color: white;
+  text-align: center;
+  padding: 0.5rem 0;
+  position: fixed;
+  width: 100%;
+  height:7%;
+  bottom: 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+footer nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+footer nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+footer nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.redirect {
+  color: white;
+  text-decoration: none;
+}
+
+.redirect:hover {
+  text-decoration: underline;
+}
+
+/* Slider container styling */
+.container {
+  width: 100%;
+  height: 60vh; /* Adjust height for better visibility */
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Image container styling */
+.imgContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease;
+}
+
+.slide_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  position: relative;
+  overflow: hidden; /* Align items in a column to stack image and text */
+}
+
+img {
+  height: 100%; /* Ensure image height scales with container */
+  max-width: 100%; /* Prevent images from exceeding container width */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Text link styling */
+.link {
+  position: absolute;
+  bottom: 10px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  text-shadow: 1px 1px 2px #000000;
+  text-decoration: none;
+}
+
+/* Navigation buttons styling */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+#price h1 {
+  color: #2E8B57;
+  margin-bottom: 1em;
+}
+
+h1::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background-color: #2E8B57;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+
+#positivity-line {
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+/* Animation keyframes for sliding out */
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+/* Animation keyframes for sliding in */
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* Style for the questionnaire link */
+#openQuestionnaire {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    background-color: #2E8B57; /* Green background */
+    
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;/*no underline*/
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#openQuestionnaire:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+#openQuestionnaire:active {
+    background-color: #388e3c; /* Even darker green when clicked */
+    transform: scale(0.95); /* Slightly shrink the button when clicked */
+}
+
